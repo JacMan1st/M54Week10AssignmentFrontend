@@ -1,7 +1,12 @@
 import "./App.css";
+import LogAndSign from "./components/logAndSign/Logandsign";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <LogAndSign />
+    </>
+  );
 }
 
 export default App;
