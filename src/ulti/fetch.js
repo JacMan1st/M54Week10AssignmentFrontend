@@ -16,7 +16,7 @@ export const signup = async (username, email, password) => {
   console.log("data in fetch signup");
 };
 
-export const loginUser = async (username, email, password) => {
+export const loginUser = async (username, password) => {
   const response = await fetch("http://localhost:5001/users/login", {
     method: "POST",
     mode: "cors",
@@ -25,7 +25,6 @@ export const loginUser = async (username, email, password) => {
     },
     body: JSON.stringify({
       username: username,
-      email: email,
       password: password,
     }),
   });

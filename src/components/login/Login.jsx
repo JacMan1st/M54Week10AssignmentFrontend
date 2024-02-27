@@ -3,7 +3,6 @@ import { loginUser } from "../../ulti/fetch";
 
 const Login = ({ setLoggedIn }) => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPopup, setShowPopup] = useState(false);
 
@@ -18,12 +17,12 @@ const Login = ({ setLoggedIn }) => {
       const data = await loginUser(username, password);
       console.log("backend connection", data);
 
-      if (data && data.user.id && data.user.username && data.user.email) {
+      if (data && data.user.id && data.user.username) {
         setShowPopup(true);
         setLoggedIn(true);
       } else {
         console.log("unexpected: ", data);
-        console.log("ID: ", data.user.id || data.user.email);
+        console.log("ID: ", data.user.id);
         console.log("username: ", data.user.username);
         console.log("email: ", data.user.email);
         throw new Error("invalid");
@@ -42,7 +41,7 @@ const Login = ({ setLoggedIn }) => {
       <form className="form1" onSubmit={handleSubmit}>
         <h3>Login</h3>
         <input
-          placeholder="username or email"
+          placeholder="username"
           onChange={(e) => changeHandler(e, setUsername, username)}
         />
         <input
