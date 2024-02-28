@@ -1,0 +1,25 @@
+form {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: center;
+  border-radius: 8px;
+  border: 3px solid #777777;
+  box-shadow: 0 0 15px black;
+  background-position: center;
+  color: black;
+  padding: 30px;
+}
+
+.forget-pass {
+  font-size: smaller;
+  color: lightblue;
+}
+
+.form-group {
+  padding: 10px;
+}
+
+p {
+  color: white;
+}

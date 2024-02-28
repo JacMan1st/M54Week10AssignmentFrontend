@@ -1,68 +1,79 @@
-import React, { useState } from "react";
-import { loginUser } from "../../ulti/fetch";
+import { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import "./Login.css";
 
-const Login = ({ setLoggedIn }) => {
+function Login({ setLoggedIn }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [showPopup, setShowPopup] = useState(false);
+  const [error, setError] = useState(null);
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
-  const changeHandler = (e, setter, state) => {
-    setter(e.target.value);
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      const data = await loginUser(username, password);
-      console.log("backend connection", data);
-
-      if (data && data.user.id && data.user.username) {
-        setShowPopup(true);
-        setLoggedIn(true);
-      } else {
-        console.log("unexpected: ", data);
-        console.log("ID: ", data.user.id);
-        console.log("username: ", data.user.username);
-        console.log("email: ", data.user.email);
-        throw new Error("invalid");
-      }
+      const response = await axios.post("http://localhost:5001/users/login", {
+        username,
+        password,
+      });
+      console.log("Login successful:", response.data);
+      setLoggedIn(true);
+      setLoggedInUser(username);
+      setUsername("");
+      setPassword("");
     } catch (error) {
-      console.log("error: ", error);
+      console.error("Error logging in:", error);
+      setError(
+        error.response.data.message || "An error occurred during login."
+      );
     }
   };
 
-  const closePopup = () => {
-    setShowPopup(false);
-  };
-
   return (
-    <div>
-      <form className="form1" onSubmit={handleSubmit}>
-        <h3>Login</h3>
-        <input
-          placeholder="username"
-          onChange={(e) => changeHandler(e, setUsername, username)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => changeHandler(e, setPassword, password)}
-        />
-        <button>Login</button>
-      </form>
-      {showPopup && (
-        <div className="success-popup">
-          <p>
-            Login Successful!
-            <br />
-            SnapSurger {username}, reporting for duty!
-          </p>
-          <button onClick={closePopup}>Close</button>
+    <div className="login-container">
+      <h1 className="login-title">Login</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <input
+            placeholder="username"
+            type="text"
+            value={username}
+            onChange={handleUsernameChange}
+            required
+          />
         </div>
-      )}
+        <div className="form-group">
+          <input
+            placeholder="password"
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
+        {error && <p className="error-message">{error}</p>}
+        {loggedInUser && (
+          <p className="success-message">
+            Welcome back to SnapSerge!
+            <br />
+            {loggedInUser}'s here reporting for duty!
+          </p>
+        )}
+      </form>
+      <Link to="./ResetPassword" className="forget-pass">
+        Forgot Password?
+      </Link>
     </div>
   );
-};
+}
 
 export default Login;
