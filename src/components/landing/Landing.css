@@ -1,6 +1,7 @@
 .landing-page {
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .random-photo {
@@ -13,5 +14,12 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  margin-left: 30px;
+}
+
+.content {
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
   margin-left: 30px;
 }

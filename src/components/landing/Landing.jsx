@@ -29,42 +29,22 @@ const Landing = () => {
 
   return (
     <div className="landing-page">
-      <div className="header">
-        <h1>SnapSerge</h1>
-        <img src="" alt="" className="logo" />
-      </div>
+      <h1 className="header">Welcome To SnapSerge</h1>
       <div className="content">
-        <div className="social-post">
-          <div className="image-container">
-            {randomPhoto && (
-              <img
-                className="random-photo"
-                src={randomPhoto.urls.regular}
-                alt="Random Photo"
-              />
-            )}
-            <div className="reactions">
-              <i className="far fa-heart"></i>
-              <i className="far fa-laugh-squint"></i>
-              <i className="far fa-thumbs-up"></i>
-            </div>
-          </div>
-          <div className="comments">
-            <div className="comment-bubble">
-              <div className="speech-bubble">
-                <p>Wow, love this!</p>
-              </div>
-              <div className="comment-icons">
-                <i className="far fa-heart"></i>
-                <i className="far fa-laugh-squint"></i>
-                <i className="far fa-thumbs-up"></i>
-              </div>
-            </div>
-          </div>
+        <div className="image-container">
+          {randomPhoto && (
+            <img
+              className="random-photo"
+              src={randomPhoto.urls.regular}
+              alt="Random Photo"
+            />
+          )}
         </div>
         <div className="signup-login">
-          <p className="playful-text">
-            Like what you see? <br /> Sign up or login.
+          <p className="welcome-text">
+            Feel the need to Serge?
+            <br />
+            Sign up or login.
           </p>
           <div className="buttons-container">
             <Link to="./login/Login" className="login-button">

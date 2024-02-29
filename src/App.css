@@ -1,9 +1,8 @@
 nav {
-  background-color: #8d99a0;
-  color: black;
+  background-color: rgb(41, 41, 41);
+  color: silver;
   padding: 20px;
   text-align: center;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -11,6 +10,8 @@ nav {
   text-align: center;
   justify-content: center;
   align-items: center;
+  border-bottom: 3px solid rgb(71, 71, 71);
+  box-shadow: 5px 5px 15px rgb(71, 71, 71);
 }
 
 ul {
@@ -19,10 +20,16 @@ ul {
   list-style-type: none;
 }
 
+li {
+  margin-right: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
 a {
   display: inline;
   text-align: none;
-  color: black;
+  color: silver;
   margin-right: 10px;
   font-size: larger;
   text-decoration: none;
@@ -45,4 +52,28 @@ button:active {
 
 button:hover {
   box-shadow: 0.5px 0.5px 1px 0.5px white;
+}
+
+.the-media {
+  padding-top: 60px;
+}
+
+.logout-button {
+  padding-left: 500px;
+}
+
+.the-logo {
+  z-index: 3;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  margin-top: -50px;
+  pointer-events: none;
+  object-fit: cover;
+}
+
+.thelogo-container {
+  display: flex;
 }

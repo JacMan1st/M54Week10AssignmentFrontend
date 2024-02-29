@@ -69,9 +69,9 @@ function Login({ setLoggedIn }) {
           </p>
         )}
       </form>
-      <Link to="./ResetPassword" className="forget-pass">
+      <a href="*" className="forget-pass">
         Forgot Password?
-      </Link>
+      </a>
     </div>
   );
 }
