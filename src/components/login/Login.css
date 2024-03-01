@@ -1,19 +1,29 @@
+.login-container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
 form {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
+  justify-content: center;
   align-items: center;
   border-radius: 8px;
   border: 3px solid #777777;
   box-shadow: 0 0 15px black;
-  background-position: center;
+  /* background-position: center; */
   color: black;
   padding: 30px;
 }
 
 .forget-pass {
   font-size: smaller;
-  color: lightblue;
+  color: blue;
+  padding-top: 10px;
 }
 
 .form-group {
@@ -21,5 +31,5 @@ form {
 }
 
 p {
-  color: white;
+  color: black;
 }

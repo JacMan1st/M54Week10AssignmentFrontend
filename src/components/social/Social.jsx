@@ -115,12 +115,11 @@ function Social({ loggedInUser }) {
             <img
               src={photo.urls.regular}
               alt={photo.alt_description}
-              className="photo"
+              className="social-photo"
             />
             <div className="photo-details">
               <p>By: {photo.user.username}</p>
               <p>Likes: {photo.likes}</p>
-              <button onClick={() => handleLike(photo.id)}>Like</button>
               <input
                 type="text"
                 placeholder="Add a comment..."
@@ -128,9 +127,13 @@ function Social({ loggedInUser }) {
                 onChange={(e) => setComment(e.target.value)}
                 className="comment-input"
               />
-              <button onClick={() => handleComment(photo.id, comment)}>
+              <button
+                className="photo-button"
+                onClick={() => handleComment(photo.id, comment)}
+              >
                 Comment
               </button>
+              <button onClick={() => handleLike(photo.id)}>Like</button>
             </div>
           </div>
         ))}

@@ -24,11 +24,14 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5001/users/signup", {
-        username,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "http://localhost:5001/users/signupUser",
+        {
+          username,
+          email,
+          password,
+        }
+      );
       console.log("Signup successful:", response.data);
       setSignedUpUser(response.data.user.username);
       alert(
@@ -47,8 +50,8 @@ function Signup() {
       <h1>Signup</h1>
       <form onSubmit={handleSubmit} className="signup-form">
         <div className="form-group">
-          <label>Username:</label>
           <input
+            placeholder="username"
             type="text"
             value={username}
             onChange={handleUsernameChange}
@@ -56,8 +59,8 @@ function Signup() {
           />
         </div>
         <div className="form-group">
-          <label>Email:</label>
           <input
+            placeholder="email"
             type="email"
             value={email}
             onChange={handleEmailChange}
@@ -65,8 +68,8 @@ function Signup() {
           />
         </div>
         <div className="form-group">
-          <label>Password:</label>
           <input
+            placeholder="password"
             type="password"
             value={password}
             onChange={handlePasswordChange}
@@ -78,7 +81,6 @@ function Signup() {
         </button>
         {error && <p className="error-message">{error}</p>}
       </form>
-      {/* {signedUpUser && <popup />} */}
     </div>
   );
 }

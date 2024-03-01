@@ -1,4 +1,10 @@
+.bodz {
+  width: 50%;
+}
+
 nav {
+  position: fixed;
+  width: 100vw;
   background-color: rgb(41, 41, 41);
   color: silver;
   padding: 20px;
@@ -52,10 +58,6 @@ button:active {
 
 button:hover {
   box-shadow: 0.5px 0.5px 1px 0.5px white;
-}
-
-.the-media {
-  padding-top: 60px;
 }
 
 .logout-button {
