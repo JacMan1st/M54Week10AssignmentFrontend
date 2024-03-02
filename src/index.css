@@ -12,5 +12,5 @@ body {
   padding: 0;
   display: flex;
   background-color: silver;
-  background-image: url("src/images/silver-background.jpg");
+  background-image: url("images/silver-background.jpg");
 }

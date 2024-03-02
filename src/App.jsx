@@ -18,34 +18,41 @@ const App = () => {
     <Router>
       <div className="bodz">
         <nav>
-          <ul>
-            <li>
-              {!loggedIn && (
-                <Link to="/login" className="login-link">
-                  Login
-                </Link>
-              )}
-              {loggedIn && (
-                <Link to="/social" className="signup-link">
-                  Serge Media
-                </Link>
-              )}
-              {!loggedIn && <Link to="/signup">Signup</Link>}
-            </li>
-          </ul>
-          <div className="thelogo-container">
-            <img
-              className="the-logo"
-              src="src/images/Designer.png"
-              alt="logo"
-            ></img>
-          </div>
-          <div className="logout-button">
-            {loggedIn && <button onClick={handleLogout}>Logout</button>}
+          <div className="navbar">
+            <div className="nav-links">
+              <div className="login-div">
+                {!loggedIn && (
+                  <Link to="/login" className="login-link">
+                    Login
+                  </Link>
+                )}
+              </div>
+              <div>
+                {loggedIn && (
+                  <Link to="/social" className="serge-link">
+                    SergeMedia
+                  </Link>
+                )}
+              </div>
+
+              <div>{!loggedIn && <Link to="/signup">Signup</Link>}</div>
+            </div>
+            <div className="thelogo-container">
+              <img
+                className="the-logo"
+                src="images/Designer.png"
+                alt="logo"
+              ></img>
+            </div>
+
+            <div className="logout-button">
+              {loggedIn && <button onClick={handleLogout}>Logout</button>}
+            </div>
           </div>
         </nav>
       </div>
-      <div className="the-media">
+
+      <div>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />

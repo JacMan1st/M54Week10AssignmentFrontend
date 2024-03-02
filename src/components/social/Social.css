@@ -3,9 +3,8 @@
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
-
   width: 100vw;
-  margin-top: 70px;
+  margin-top: 130px;
 }
 
 .photo-grid {
@@ -29,6 +28,7 @@
 
 .social-photo {
   border-radius: 20px;
+  box-shadow: 5px 5px 15px rgb(71, 71, 71);
 }
 
 .photo-details {
@@ -41,7 +41,7 @@
 }
 
 .photo-button {
-  margin-right: 110px;
+  margin-right: 150px;
 }
 .comment-input {
   margin-right: 5px;
