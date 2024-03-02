@@ -18,10 +18,8 @@ function Social({ loggedInUser }) {
       img.onload = () => {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
-
         canvas.width = width;
         canvas.height = height;
-
         ctx.drawImage(img, 0, 0, width, height);
 
         resolve(canvas.toDataURL());
@@ -58,7 +56,7 @@ function Social({ loggedInUser }) {
             };
           } catch (error) {
             console.error("Error resizing image:", error);
-            return photo; // Return original photo if resizing fails
+            return photo;
           }
         })
       );
@@ -113,9 +111,9 @@ function Social({ loggedInUser }) {
         {photos.map((photo) => (
           <div key={photo.id} className="photo-container">
             <img
+              className="social-photo"
               src={photo.urls.regular}
               alt={photo.alt_description}
-              className="social-photo"
             />
             <div className="photo-details">
               <p>By: {photo.user.username}</p>
@@ -131,7 +129,7 @@ function Social({ loggedInUser }) {
                 className="photo-button"
                 onClick={() => handleComment(photo.id, comment)}
               >
-                Comment
+                Post
               </button>
               <button onClick={() => handleLike(photo.id)}>Like</button>
             </div>

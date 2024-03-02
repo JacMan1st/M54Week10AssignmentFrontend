@@ -3,40 +3,26 @@
 }
 
 nav {
-  position: fixed;
-  width: 100vw;
-  background-color: rgb(41, 41, 41);
-  color: silver;
-  padding: 20px;
+  display: flex;
   text-align: center;
+  justify-content: space-evenly;
+  align-items: center;
+  position: fixed;
+  background: linear-gradient(rgb(87, 92, 119), rgb(41, 41, 41));
+  color: silver;
+  text-align: center;
+  width: 100vw;
   top: 0;
   left: 0;
   right: 0;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 3px solid rgb(71, 71, 71);
+  border-bottom: 4px solid rgb(71, 71, 71);
   box-shadow: 5px 5px 15px rgb(71, 71, 71);
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-li {
-  margin-right: 300px;
-  display: flex;
-  justify-content: space-between;
 }
 
 a {
   display: inline;
   text-align: none;
   color: silver;
-  margin-right: 10px;
   font-size: larger;
   text-decoration: none;
 }
@@ -60,22 +46,38 @@ button:hover {
   box-shadow: 0.5px 0.5px 1px 0.5px white;
 }
 
-.logout-button {
-  padding-left: 500px;
+.navbar {
+  flex-direction: column;
+  margin-right: 333px;
+}
+
+.nav-links {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: -50px;
+}
+
+.login-div {
+  padding-bottom: 5px;
 }
 
 .the-logo {
-  z-index: 3;
-  position: fixed;
+  left: 155px;
+  position: relative;
   display: flex;
   align-items: center;
   height: 100px;
   width: 100px;
-  margin-top: -50px;
+  /* margin-top: -5px; */
   pointer-events: none;
   object-fit: cover;
+  z-index: 3;
 }
 
-.thelogo-container {
+.logout-button {
+  position: absolute;
+  margin-left: 410px;
+  top: 25px;
   display: flex;
+  align-items: center;
 }

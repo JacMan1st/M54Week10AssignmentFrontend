@@ -30,10 +30,28 @@ const Landing = () => {
   return (
     <div className="landing-page">
       <div className="content">
+        <div className="signup-login">
+          <h3 className="welcome-text">Welcome to SnapSerge!</h3>
+
+          <p>
+            Are you on the verge to Serge?
+            <br />
+            Sign up or login.
+          </p>
+          <div className="buttons-container">
+            <Link to="/Login" className="login-button">
+              LogIn
+            </Link>
+            <Link to="/Signup" className="signup-button">
+              SignUp
+            </Link>
+          </div>
+        </div>
+
         <div className="image-container">
           <img
             className="phone"
-            src="src/images/My first design (1).png"
+            src="images/My first design (1).png"
             alt="phone selfie"
           />
           {randomPhoto && (
@@ -43,24 +61,6 @@ const Landing = () => {
               alt="landing Photo"
             />
           )}
-        </div>
-
-        <div className="signup-login">
-          <h4 className="welcome-text">Welcome to SnapSerge!</h4>
-
-          <p>
-            Are you on the verge to Serge?
-            <br />
-            Sign up or login.
-          </p>
-          <div className="buttons-container">
-            <Link to="/Login" className="login-button">
-              Login
-            </Link>
-            <Link to="/Signup" className="signup-button">
-              Sign up
-            </Link>
-          </div>
         </div>
       </div>
     </div>

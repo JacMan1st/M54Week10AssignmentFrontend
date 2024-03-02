@@ -34,9 +34,6 @@ function Signup() {
       );
       console.log("Signup successful:", response.data);
       setSignedUpUser(response.data.user.username);
-      alert(
-        `Success! You have signed up. Welcome, ${response.data.user.username}!`
-      );
     } catch (error) {
       console.error("Error signing up:", error);
       setError(
@@ -80,6 +77,13 @@ function Signup() {
           Signup
         </button>
         {error && <p className="error-message">{error}</p>}
+        {signedUpUser && (
+          <p className="success-message">
+            Welcome to SnapSerge, {signedUpUser}.
+            <br />
+            It's time to Serge!
+          </p>
+        )}
       </form>
     </div>
   );
